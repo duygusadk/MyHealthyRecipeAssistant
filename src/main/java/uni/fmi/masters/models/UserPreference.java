@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -18,7 +19,7 @@ public class UserPreference extends BaseEntity{
     @JoinTable(
             name = "user_favorites",
             joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "recipe_iri")
+            inverseJoinColumns = @JoinColumn(name = "recipe_id")
     )
-    private List<RecipeMetadata> favoriteRecipes;
+    private List<RecipeMetadata> favoriteRecipes= new ArrayList<>();
 }
